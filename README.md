@@ -1,8 +1,8 @@
-###  DATE: 
+###  DATE: 14-03-2024
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME:RAGUNATH R 
+###  ROLL NO :212222240081
+###  DEPARTMENT:AI ML
 
 
 # EXPERIMENT NO 05 INTERFACING ANALOG OUTPUT SERVO MOTOR WITH ARDUINO
@@ -42,24 +42,21 @@ An external controller (such as the Arduino) tells the servo where to go with a 
 
  ![image](https://user-images.githubusercontent.com/36288975/163544513-ca497421-e6ba-4f91-871f-5cfba77f22a8.png)
 
+![image](https://user-images.githubusercontent.com/36288975/163544618-6eb8a7b5-7f1a-428a-8d9f-fd899b145efb.png)
 
-### Figure-03 SERVO MOTOR OVERVIEW 
+
+### CIRCUIT DIAGRAM
+ 
+![WhatsApp Image 2024-03-14 at 11 19 21_cb0c8ec5](https://github.com/Ragu-123/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/113915622/db11b242-5e79-4e23-bf2e-62dd2d02ac24)
+![WhatsApp Image 2024-03-14 at 11 18 01_678ac375](https://github.com/Ragu-123/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/113915622/e67cf81a-ea58-4acc-94fb-ee619a7b3cbd)
+
+
+## graph:
+![image](https://github.com/Ragu-123/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/113915622/c1750cab-7b67-429d-928d-d08557e06265)
 
  
-
-
- 
-
-
-
-
-
-CIRCUIT DIAGRAM
  
  
- ![image](https://user-images.githubusercontent.com/36288975/163544618-6eb8a7b5-7f1a-428a-8d9f-fd899b145efb.png)
-
-### FIGURE 04 CIRCUIT DIAGRAM
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -74,15 +71,40 @@ CIRCUIT DIAGRAM
 
 
 ### PROGRAM :
- 
+```
+// C++ code
+//
 
+#include<Servo.h>
+Servo s1;
 
+int pos = 0;
 
+void setup()
+{
+  s1.attach(9);
+  Serial.begin(9600);
+  Serial.print("type the angle");
+  
+}
 
-
-
-
-
-
+void loop()
+{
+  for(pos=0;pos<=180;pos++){
+    s1.write(pos);
+    delay(20); //milliseconds
+    //Serial.print("Angle=");
+    Serial.println(pos);
+    //delay(500);
+  }
+  for(pos=180;pos>=0;pos--){
+    s1.write(pos);
+    delay(20); //milliseconds
+    //Serial.print("Angle=");
+    Serial.println(pos);
+    //delay(500);
+  }
+}
+```
 ### RESULTS: 
 Arduino uno interfacing with servo motor is learned and angular position is controlled using PWM signal.
